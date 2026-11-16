@@ -4,7 +4,7 @@ import axios from 'axios';
 import { 
   Zap, LogOut, Radio, MapPin, FileText, User, 
   Search, Calendar, Clock, Star, CheckCircle, 
-  Sparkles, ExternalLink, ShieldCheck, Check, Brain
+  Sparkles, Check, Brain
 } from 'lucide-react';
 import LiveTicker from '../components/LiveTicker';
 

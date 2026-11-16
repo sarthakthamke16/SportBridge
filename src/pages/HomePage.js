@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
-import { Zap, Brain, ShieldCheck, ClipboardCheck, Trophy, Users, ArrowRight, Calendar, MapPin, Tag } from 'lucide-react';
+import { Zap, Brain, ShieldCheck, ClipboardCheck, Trophy, Users, ArrowRight, Calendar, MapPin } from 'lucide-react';
 import LiveTicker from '../components/LiveTicker';
 
 const API_BASE = process.env.REACT_APP_BACKEND_URL || 'http://localhost:5000/api';
