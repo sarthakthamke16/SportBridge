@@ -8,6 +8,8 @@ bcrypt==4.2.1
 requests==2.32.3
 google-generativeai==0.8.3
 googlemaps==4.10.0
+mongomock==4.3.0
+gunicorn==23.0.0
 
 # Email
 sendgrid==6.11.0

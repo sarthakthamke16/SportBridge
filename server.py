@@ -52,6 +52,36 @@ def register():
     user.pop("password", None)
     return jsonify({"token": token, "user": serialize(user)}), 201
 
+@app.route("/api/auth/google", methods=["POST"])
+def auth_google():
+    data = request.get_json() or {}
+    email = data.get("email", "").strip().lower()
+    name = data.get("name", "Athlete User")
+    role = data.get("role", "athlete")
+    
+    if not email:
+        return jsonify({"error": "Email is required"}), 400
+        
+    db = get_db()
+    user = db.users.find_one({"email": email})
+    
+    if not user:
+        # Create brand new user
+        new_user = {
+            "email": email,
+            "name": name,
+            "role": role,
+            "phone": "",
+            "created_at": datetime.now(timezone.utc).isoformat()
+        }
+        res = db.users.insert_one(new_user)
+        user = db.users.find_one({"_id": res.inserted_id})
+        
+    token = make_token(str(user["_id"]), user.get("role", role))
+    user_data = serialize(user)
+    user_data.pop("password", None)
+    return jsonify({"token": token, "user": user_data})
+
 @app.route("/api/auth/login", methods=["POST"])
 def login():
     data = request.get_json() or {}
