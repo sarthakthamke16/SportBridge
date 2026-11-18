@@ -321,7 +321,7 @@ export default function LoginPage() {
             className="w-full bg-[#161b22] hover:bg-[#21262d] border border-[#30363d] text-gray-200 font-semibold py-2.5 px-4 rounded text-xs flex items-center justify-center gap-2 transition disabled:opacity-50"
           >
             <span className="text-sm font-bold text-blue-400">G</span> 
-            {googleLoading ? 'Redirecting to Google...' : 'Continue with Google (Supabase)'}
+            {googleLoading ? 'Redirecting to Google...' : 'Continue with Google'}
           </button>
 
           {/* Toggle Login / Register */}
